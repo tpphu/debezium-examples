@@ -52,3 +52,7 @@ The corresponding aggregate should be updated inMongoDB.
 ```shell
 docker-compose down
 ```
+
+# Issues
+
+![Bug](2020-12-08-13-52-30.png)
