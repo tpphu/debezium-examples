@@ -1,5 +1,5 @@
 # 1. Prepare JDK
-FROM fedora:29 as jdk
+FROM fedora:30 as jdk
 
 RUN mkdir /tmp/jdk \
      && cd /tmp/jdk \
@@ -28,7 +28,7 @@ COPY src /tmp/poc-ddd-aggregates/src
 RUN mvn package -DskipTests -o -f /tmp/poc-ddd-aggregates/pom.xml
 
 # 3. Create actual image (jlink-ed JDK, dependencies, JAR and launcher)
-FROM registry.fedoraproject.org/fedora-minimal:29
+FROM registry.fedoraproject.org/fedora-minimal:30
 
 COPY --from=jdk /opt/jre-minimal /opt/poc-ddd-aggregates/jdk
 RUN cd /opt/poc-ddd-aggregates \
